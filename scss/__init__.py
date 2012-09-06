@@ -753,7 +753,7 @@ class Scss(object):
 
     #@profile
     #@print_timing(2)
-    def Compilation(self, scss_string=None, scss_file=None, super_selector=None):
+    def Compilation(self, scss_string=None, scss_file=None, super_selector=None, gen_string=False):
         if super_selector:
             self.super_selector = super_selector + ' '
         if scss_string is not None:
@@ -784,7 +784,7 @@ class Scss(object):
 
         final_cont = ''
         for fileid in self.css_files:
-            if not fileid.startswith('<string '):
+            if gen_string and not fileid.startswith('<string '):
                 final_cont += '/* Generated from: ' + fileid + ' */\n'
             fcont = self.create_css(fileid)
             final_cont += fcont
