@@ -752,7 +752,7 @@ class Scss(object):
         self.clean()
 
     #@profile
-    @print_timing(2)
+    #@print_timing(2)
     def Compilation(self, scss_string=None, scss_file=None, super_selector=None):
         if super_selector:
             self.super_selector = super_selector + ' '
